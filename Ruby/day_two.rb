@@ -1,3 +1,4 @@
+# Printing with and without each_slice
 a = (1..16).to_a
 
 a.each { |i| print " #{i}#{i % 4 == 0 ? "\n" : ','}" }
@@ -19,11 +20,13 @@ class Tree
   def visit
     yield self
   end
-  end
+end
 
+# Refactor Tree Class
 ruby_tree = Tree.new('grandpa' => { 'dad' => { 'child 1' => {}, 'child 2' => {} }, 'uncle' => { 'child 3' => {}, 'child 4' => {} } })
 ruby_tree.visit_all { |a| puts a.node_name }
 
+# Simple Grep
 filename = ARGV[0]
 regex = ARGV[1]
 File.open(filename, 'r').each do |line|
